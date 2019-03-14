@@ -1,4 +1,4 @@
-# The supporting package for the Python code part of SAVER-X
+# The supporting Python package of SAVER-X
 
 This package should not be used alone. It is designed to be used internally by the R code of SAVER-X.
 It contains simplified code from the python [dca](http://github.com/theislab/dca) package and the new Python code for transfer learning.
