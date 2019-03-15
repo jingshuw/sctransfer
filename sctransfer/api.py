@@ -89,7 +89,7 @@ def autoencode(adata = None,
 
     net.load_weights("%s/weights.hdf5" % out_dir)
     
-    if pred_adata:
+    if pred_adata or pred_mtx_file:
         del adata
         res = net.predict(pred_adata)
         pred_adata.obsm['X_dca'] = res['mean_norm']
