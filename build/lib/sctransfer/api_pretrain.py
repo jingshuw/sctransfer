@@ -86,7 +86,7 @@ def autoencode(n_inoutnodes_human,
     if pred_adata or pred_mtx_file:
         if pred_adata is None:
             pred_adata = anndata.read_mtx(pred_mtx_file).transpose()
-        else
+        else:
             pred_adata.X = csr_matrix(pred_adata.X)
         pred_adata.uns['species'] = species
         pred_adata.uns['data_type'] = 'UMI'
