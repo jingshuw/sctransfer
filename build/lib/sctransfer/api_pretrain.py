@@ -6,6 +6,7 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 import re
 import pickle
+import gc
 
 from .io import read_dataset, normalize, write_text_matrix
 from . import train_joint as tj
@@ -20,6 +21,7 @@ def autoencode(n_inoutnodes_human,
                adata = None,
                mtx_file=None,
                pred_adata=None,
+               pred_mtx_file = None,
                species = None,
                nonmissing_indicator=None,
                initial_file= "",
@@ -81,8 +83,11 @@ def autoencode(n_inoutnodes_human,
 
    # print(type(adata.X))
 
-    if pred_adata:
-        pred_adata.X = csr_matrix(pred_adata.X)
+    if pred_adata or pred_mtx_file:
+        if pred_adata is None:
+            pred_adata = anndata.read_mtx(pred_mtx_file).transpose()
+        else
+            pred_adata.X = csr_matrix(pred_adata.X)
         pred_adata.uns['species'] = species
         pred_adata.uns['data_type'] = 'UMI'
         pred_adata = read_dataset(pred_adata,
@@ -127,8 +132,11 @@ def autoencode(n_inoutnodes_human,
 
 
  
-    if pred_adata:
+    if pred_adata or pred_mtx_file:
+        del adata
         res = net.predict(pred_adata, pred_adata.uns['shared'])
+        del model,net
+        gc.collect()
         pred_adata.obsm['X_dca'] = res['mean_norm']
 
         if write_output_to_tsv:
@@ -145,6 +153,9 @@ def autoencode(n_inoutnodes_human,
 
 
     res = net.predict(adata, adata.uns['shared'])
+    del model,net
+    gc.collect()
+
     adata.obsm['X_dca'] = res['mean_norm']
 
 
@@ -159,5 +170,6 @@ def autoencode(n_inoutnodes_human,
             pickle.dump(adata, f, protocol=4)
             f.close()
 
+ 
 
     return adata
