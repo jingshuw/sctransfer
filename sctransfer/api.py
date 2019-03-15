@@ -7,7 +7,7 @@ import numpy as np
 import tensorflow as tf
 import pandas as pd
 import pickle
-import re
+import re, gc
 
 from .io import read_dataset, normalize, write_text_matrix
 from .train import train
@@ -19,6 +19,7 @@ from .network import NBConstantDispAutoencoder
 def autoencode(adata = None,
                mtx_file = None,
                pred_adata=None, ## cross-validation purpose
+               pred_mtx_file = None,
                out_dir=".",
                write_output_to_tsv = False,
                save_data = False,
@@ -58,7 +59,9 @@ def autoencode(adata = None,
                       size_factors=True,
                       logtrans_input=True)
 
-    if pred_adata:
+    if pred_adata or pred_mtx_file:
+        if pred_adata is None:
+            pred_adata = anndata.read_mtx(pred_mtx_file).transpose()
         pred_adata.uns['data_type'] = 'UMI'
         pred_adata = read_dataset(pred_adata,
                 transpose=False,
@@ -87,8 +90,11 @@ def autoencode(adata = None,
     net.load_weights("%s/weights.hdf5" % out_dir)
     
     if pred_adata:
+        del adata
         res = net.predict(pred_adata)
         pred_adata.obsm['X_dca'] = res['mean_norm']
+        del net,loss
+        gc.collect()
 
         if write_output_to_tsv:
             print('Saving files ...')
@@ -116,6 +122,9 @@ def autoencode(adata = None,
             with open(os.path.join(out_dir, data_name + 'adata.pickle'), 'wb') as f:
                 pickle.dump(adata, f, protocol=4)
                 f.close()
+
+    del net,loss
+    gc.collect()
 
 
     return adata

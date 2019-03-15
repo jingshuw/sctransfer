@@ -6,6 +6,7 @@ import pandas as pd
 from scipy.sparse import csr_matrix
 import re
 import pickle
+import gc
 
 from .io import read_dataset, normalize, write_text_matrix
 from . import train_joint as tj
@@ -128,7 +129,10 @@ def autoencode(n_inoutnodes_human,
 
  
     if pred_adata:
+        del adata
         res = net.predict(pred_adata, pred_adata.uns['shared'])
+        del model,net
+        gc.collect()
         pred_adata.obsm['X_dca'] = res['mean_norm']
 
         if write_output_to_tsv:
@@ -145,6 +149,9 @@ def autoencode(n_inoutnodes_human,
 
 
     res = net.predict(adata, adata.uns['shared'])
+    del model,net
+    gc.collect()
+
     adata.obsm['X_dca'] = res['mean_norm']
 
 
@@ -159,5 +166,6 @@ def autoencode(n_inoutnodes_human,
             pickle.dump(adata, f, protocol=4)
             f.close()
 
+ 
 
     return adata
