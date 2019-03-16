@@ -8,6 +8,8 @@ import tensorflow as tf
 import pandas as pd
 import pickle
 import re, gc
+import sys
+sys.stdout.flush()
 
 from .io import read_dataset, normalize, write_text_matrix
 from .train import train

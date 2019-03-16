@@ -1,5 +1,5 @@
 numpy>=1.7
-keras>=2.0.8
+keras>=2.2.2
 tensorflow
 h5py
 six>=1.10.0

@@ -7,6 +7,8 @@ from scipy.sparse import csr_matrix
 import re
 import pickle
 import gc
+import sys
+sys.stdout.flush()
 
 from .io import read_dataset, normalize, write_text_matrix
 from . import train_joint as tj
