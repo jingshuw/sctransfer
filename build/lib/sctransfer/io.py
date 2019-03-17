@@ -87,5 +87,5 @@ def write_text_matrix(matrix, filename, rownames=None, colnames=None, transpose=
                                                                   sep='\t',
                                                                   index=(rownames is not None),
                                                                   header=(colnames is not None),
-                                                                  float_format='%.6f')
+                                                                  float_format='%.3f')
 

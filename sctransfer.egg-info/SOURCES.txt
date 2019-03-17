@@ -7,6 +7,7 @@ sctransfer/layers.py
 sctransfer/loss.py
 sctransfer/network.py
 sctransfer/network_joint.py
+sctransfer/pretrain_folder.py
 sctransfer/saverx_train.py
 sctransfer/train.py
 sctransfer/train_joint.py

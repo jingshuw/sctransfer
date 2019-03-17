@@ -31,10 +31,8 @@ def SaverXTrain(adata_list,
 
 
     # set seed for reproducibility
-   # np.random.seed(42)
-   # tf.set_random_seed(42)
-    np.random.seed(21)
-    tf.set_random_seed(21)
+    np.random.seed(42)
+    tf.set_random_seed(42)
 
 
 

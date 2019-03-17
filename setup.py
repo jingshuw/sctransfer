@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
     setuptools.setup(
             name="sctransfer",
-            version="0.0.4",
+            version="0.0.5",
             author="Jingshu Wang",
             author_email="wangjingshususan@gmail.com",
             description="Python part for scRNA-seq transfer learning denoising tool SAVER-X",
