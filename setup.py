@@ -24,7 +24,7 @@ with open("README.md", "r") as fh:
                 'anndata',
                 'pandas'
                 ],
-            license='MIT License',
+            license='GPL-3',
             classifiers=[
                 "Programming Language :: Python :: 3",
                 "License :: OSI Approved :: GPL-3",
