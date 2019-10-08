@@ -16,7 +16,7 @@ with open("README.md", "r") as fh:
             python_requires='>=3.5',
             install_requires=['numpy>=1.7',
                 'keras>=2.2.2',
-                'tensorflow<=1.14.0',
+                'tensorflow>=2.0.0',
                 'h5py',
                 'six>=1.10.0',
                 'scikit-learn',

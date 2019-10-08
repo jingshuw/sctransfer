@@ -57,7 +57,7 @@ def autoencode(n_inoutnodes_human,
 
     # set seed for reproducibility
     np.random.seed(42)
-    tf.set_random_seed(42)
+    tf.random.set_seed(42)
 
 
  #   print(type(adata.X))
