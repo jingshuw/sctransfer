@@ -1,8 +1,8 @@
 Metadata-Version: 2.1
 Name: sctransfer
-Version: 1.0.0
+Version: 0.0.9
 Summary: Python part for scRNA-seq transfer learning denoising tool SAVER-X
-Home-page: UNKNOWN
+Home-page: https://github.com/jingshuw/sctransfer
 Author: Jingshu Wang
 Author-email: wangjingshususan@gmail.com
 License: GPL-3
