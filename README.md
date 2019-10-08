@@ -10,5 +10,5 @@ One can also use this Python package for pre-training using public data. Instruc
 ```
 pip install sctransfer
 ```
-The package only supports Python (>=3.5)
+The package only supports Python (>=3.5). Can not work with tensorflow 2.0.0 now. Will change the syntax when tensorflow 2 gets more popular.
 
