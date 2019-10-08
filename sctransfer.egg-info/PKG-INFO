@@ -1,11 +1,11 @@
-Metadata-Version: 1.2
+Metadata-Version: 2.1
 Name: sctransfer
-Version: 0.0.5
+Version: 1.0.0
 Summary: Python part for scRNA-seq transfer learning denoising tool SAVER-X
 Home-page: UNKNOWN
 Author: Jingshu Wang
 Author-email: wangjingshususan@gmail.com
-License: MIT License
+License: GPL-3
 Description: # The supporting Python package of SAVER-X
         
         This package is designed to be used by the R code of [SAVER-X](https://github.com/jingshuw/SAVERX).
@@ -18,11 +18,13 @@ Description: # The supporting Python package of SAVER-X
         ```
         pip install sctransfer
         ```
-        The package only supports Python (>=3.5)
+        The package only supports Python (>=3.5). 
         
+        Update: the package now works with tensorflow 2.
         
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
-Classifier: License :: OSI Approved :: MIT License
+Classifier: License :: OSI Approved :: GPL-3
 Classifier: Operating System :: OS Independent
 Requires-Python: >=3.5
+Description-Content-Type: text/markdown

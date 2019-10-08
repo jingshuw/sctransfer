@@ -47,7 +47,7 @@ def autoencode(adata = None,
 
     # set seed for reproducibility
     np.random.seed(42)
-    tf.set_random_seed(42)
+    tf.random.set_seed(42)
 
 
     adata = read_dataset(adata,

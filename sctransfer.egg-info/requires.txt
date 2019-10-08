@@ -1,6 +1,6 @@
 numpy>=1.7
 keras>=2.2.2
-tensorflow
+tensorflow>=2.0.0
 h5py
 six>=1.10.0
 scikit-learn
