@@ -3,7 +3,7 @@
 import numpy as np
 import scipy as sp
 import pandas as pd
-import scanpy.api as sc
+import scanpy as sc
 from sklearn.model_selection import train_test_split
 
 

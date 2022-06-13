@@ -12,4 +12,14 @@ pip install sctransfer
 ```
 The package only supports Python (>=3.5). 
 
-Update: the package now works with tensorflow 2.
+Update: the package now works with tensorflow 2 
+
+Update: the package requires tensorflow version <=2.2.0 and keras version <=2.3.0.
+
+Update: the package has been updated to work with the newer version of scanpy.
+
+To test whether the installation is successful or not, you can try with the following code. The mtx file for testing can be downloaded [here](https://www.dropbox.com/s/qy2wp2i64jjtuti/shekhar_downsampled.mtx?dl=0) 
+```
+import sctransfer.api as api
+api.autoencode(mtx_file = "shekhar_downsampled.mtx")
+```

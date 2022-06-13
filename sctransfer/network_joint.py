@@ -1,7 +1,7 @@
 import os
 
 import numpy as np
-import scanpy.api as sc
+import scanpy as sc
 
 import keras
 from keras.layers import Input, Dense, Dropout, Activation, BatchNormalization
